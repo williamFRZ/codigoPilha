@@ -1,0 +1,37 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Fila {
+    public static void main(String[] args) {
+        Queue<Documento> fila = new LinkedList<>();
+
+        fila.add(new Documento("Currículo Marcos", 1, 5));
+        fila.add(new Documento("Currículo William", 2, 2));
+        fila.add(new Documento("Árvores Binárias", 2, 3));
+
+        /*
+        FILA - QUEUE
+        FIRST IN FIRST OUT - FIFO
+        add() adiciona um item no final da fila
+        poll() remove um item da fila (primeiro a ser inserido)
+         */
+
+        while(!fila.isEmpty()) {
+            fila.poll().imprimir(); // peek() -> retorna o primeiro elemento da fila mas sem remover
+        }
+    }
+
+    public static class Documento {
+        private String nomeImpressao;
+        private int numPaginas;
+        private int numCopias;
+        public Documento(String nomeImpressao, int numPaginas, int numCopias) {
+            this.nomeImpressao = nomeImpressao;
+            this.numPaginas = numPaginas;
+            this.numCopias = numCopias;
+        }
+        public void imprimir() {
+            System.out.println("O documento " + this.nomeImpressao + " com " + this.numPaginas + " páginas foi impresso " + this.numCopias + " cópias.");
+        }
+    }
+}
